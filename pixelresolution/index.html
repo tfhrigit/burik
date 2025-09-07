@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Burik</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pixel Burik</h1>
+        
+        <div class="upload-container" id="uploadContainer">
+            <div class="upload-content">
+                <div class="upload-icon">📁</div>
+                <p>Drag & Drop gambar Anda di sini</p>
+                <p>atau</p>
+                <button class="upload-btn" id="uploadBtn">Pilih File</button>
+                <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                <p class="file-info">Batas ukuran file: 12MB</p>
+            </div>
+        </div>
+        
+        <div class="app-container" id="appContainer" style="display: none;">
+            <div class="canvas-container">
+                <canvas id="originalCanvas"></canvas>
+                <canvas id="resultCanvas"></canvas>
+            </div>
+            
+            <div class="controls">
+                <div class="slider-group">
+                    <label for="pixelSize">Pixel Size: <span id="pixelSizeValue">10</span>px</label>
+                    <input type="range" id="pixelSize" min="1" max="50" value="10">
+                </div>
+                
+                <div class="slider-group">
+                    <label for="blurAmount">Blur: <span id="blurValue">0</span></label>
+                    <input type="range" id="blurAmount" min="0" max="20" value="0">
+                </div>
+                
+                <div class="download-buttons">
+                    <button id="downloadPng" class="download-btn">Download PNG</button>
+                    <button id="downloadJpeg" class="download-btn">Download JPEG</button>
+                </div>
+                
+                <button id="resetBtn" class="reset-btn">Reset Gambar</button>
+            </div>
+        </div>
+        
+        <div class="error-message" id="errorMessage" style="display: none;"></div>
+    </div>
+    
+    <div class="readme">
+        <h2>Cara Penggunaan</h2>
+        <ol>
+            <li>Upload gambar dengan drag & drop atau klik tombol "Pilih File"</li>
+            <li>Atur ukuran pixel menggunakan slider "Pixel Size"</li>
+            <li>(Opsional) Tambahkan efek blur menggunakan slider "Blur"</li>
+            <li>Lihat hasil secara real-time di preview sebelah kanan</li>
+            <li>Download hasil dalam format PNG atau JPEG</li>
+        </ol>
+        <p class="note">Semua proses dilakukan di sisi client - gambar Anda tidak dikirim ke server</p>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
